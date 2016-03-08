@@ -48,6 +48,9 @@ class I2V_micron():
         return [{t: float(prob[i, self.index[t]]) for t in tags}
                 for i in range(prob.shape[0])]
 
+    def model(self):
+        return self.net
+
     def resize_image(self, im, new_dims, interp_order = 1):
         if im.shape[-1] == 1 or im.shape[-1] == 3:
             im_min, im_max = im.min(), im.max()
